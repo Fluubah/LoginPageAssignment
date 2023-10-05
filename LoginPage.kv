@@ -1,1 +1,97 @@
+<LoginManager>:
+    StartScreen:
+        name : "start"
+    CreateScreen:
+        name: "create"
+    LoginScreen:
+        name: "login"
+    LoggedIn:
+        name:"logged"
 
+<StartScreen>:
+    BoxLayout:
+        orientation:"vertical"
+        padding: 50
+
+        spacing: 50
+        Button:
+            text:"Create Account"
+            on_release: root.next_page("create")
+        Button:
+            text:"Login"
+            on_release: root.next_page("login")
+
+<CreateScreen>:
+    BoxLayout:
+        padding:100
+        spacing:50
+        orientation:"vertical"
+        BoxLayout:
+            spacing:50
+
+            orientation:"vertical"
+            BoxLayout:
+                orientation:"horizontal"
+                Label:
+                    text:"Username"
+                TextInput:
+                    id: Username
+                    font_size:36
+        BoxLayout:
+            spacing:50
+
+            orientation:"vertical"
+            BoxLayout:
+                orientation:"horizontal"
+                Label:
+                    text:"Password"
+                TextInput:
+                    id: Password
+                    font_size:36
+        BoxLayout:
+            spacing:50
+
+            orientation:"vertical"
+            BoxLayout:
+                orientation:"horizontal"
+                Label:
+                    text:"Confirm Password"
+                TextInput:
+                    id: PasswordConfirm
+                    font_size:36
+        Label:
+            text: "Your password must contain: \nat least 1 capital letter, \n1 lowercase letter, \na number, \na special character, \nboth passwords must match, \nand it must be at least 8 characters in length"
+        Button:
+            text: "Create Account"
+            on_release: root.create_account(Username, Password, PasswordConfirm)
+
+<LoginScreen>:
+    BoxLayout:
+        padding:100
+        spacing:50
+        orientation:"vertical"
+        BoxLayout:
+            spacing:50
+
+            orientation:"vertical"
+            BoxLayout:
+                orientation:"horizontal"
+                Label:
+                    text:"Enter your username"
+                TextInput:
+                    id: Username
+                    font_size:36
+        BoxLayout:
+            spacing:50
+
+            orientation:"vertical"
+            BoxLayout:
+                orientation:"horizontal"
+                Label:
+                    text:"Enter your password"
+                TextInput:
+                    id: Password
+                    font_size:36
+        Button:
+            text: "Login"
+            on_release: root.login(Username, Password)
