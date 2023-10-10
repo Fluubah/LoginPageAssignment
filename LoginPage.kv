@@ -64,6 +64,9 @@
         Button:
             text: "Create Account"
             on_release: root.create_account(Username, Password, PasswordConfirm)
+        Button:
+            text: "Or Login"
+            on_release: root.log()
 
 <LoginScreen>:
     BoxLayout:
@@ -95,3 +98,14 @@
         Button:
             text: "Login"
             on_release: root.login(Username, Password)
+        Button:
+            text: "Or Create an Account"
+            on_release: root.create()
+
+<LoggedIn>:
+    BoxLayout:
+        Label:
+            text: "Logged In!"
+        Button:
+            text: "Log Out"
+            on_release: root.logout()
