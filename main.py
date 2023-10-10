@@ -25,7 +25,7 @@ class LoginManager(ScreenManager):
 
 class CreateScreen(Screen):
     def create_account(self, username, password, password_confirm):
-        special = "~!@#$%^&*()_+-="
+        special = "~!@#$%^&*()_+-=."
         has_special = False
         numbers = "1234567890"
         has_numbers = False
@@ -45,15 +45,21 @@ class CreateScreen(Screen):
             accounts[username.text] = password.text
             self.manager.current = "login"
 
+    def log(self):
+        self.manager.current = "login"
+
 
 class LoginScreen(Screen):
     def login(self, username, password):
         if username.text in accounts and accounts[username.text] == password.text:
             self.manager.current = "logged"
+    def create(self):
+        self.manager.current = "create"
 
 
 class LoggedIn(Screen):
-    pass
+    def logout(self):
+        self.manager.current = "start"
 
 
 LoginPageApp().run()
