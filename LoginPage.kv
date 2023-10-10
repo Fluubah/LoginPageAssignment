@@ -23,11 +23,11 @@
 
 <CreateScreen>:
     BoxLayout:
-        padding:100
-        spacing:50
+        padding:25
+        spacing:25
         orientation:"vertical"
         BoxLayout:
-            spacing:50
+            spacing:25
 
             orientation:"vertical"
             BoxLayout:
@@ -38,7 +38,7 @@
                     id: Username
                     font_size:36
         BoxLayout:
-            spacing:50
+            spacing:25
 
             orientation:"vertical"
             BoxLayout:
@@ -49,7 +49,7 @@
                     id: Password
                     font_size:36
         BoxLayout:
-            spacing:50
+            spacing:25
 
             orientation:"vertical"
             BoxLayout:
@@ -60,7 +60,12 @@
                     id: PasswordConfirm
                     font_size:36
         Label:
+            spacing:25
             text: "Your password must contain: \nat least 1 capital letter, \n1 lowercase letter, \na number, \na special character, \nboth passwords must match, \nand it must be at least 8 characters in length"
+        Label:
+            id:isval
+            text: "Invalid"
+            color: 1,0,0,0
         Button:
             text: "Create Account"
             on_release: root.create_account(Username, Password, PasswordConfirm)
