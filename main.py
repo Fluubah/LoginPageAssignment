@@ -44,6 +44,8 @@ class CreateScreen(Screen):
         if (username.text not in accounts) and (password.text == password_confirm.text) and has_special and has_numbers and has_capital and has_lowercase and (len(password.text) > 7):
             accounts[username.text] = password.text
             self.manager.current = "login"
+        else:
+            self.ids.isval.color = (1,0,0,1)
 
     def log(self):
         self.manager.current = "login"
